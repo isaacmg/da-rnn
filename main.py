@@ -217,5 +217,5 @@ def main():
     torch.save(model.encoder.state_dict(), os.path.join("data", "encoder.torch"))
     torch.save(model.decoder.state_dict(), os.path.join("data", "decoder.torch"))
     
- if __name__ == "__main__":
+if __name__ == "__main__":
     main()
