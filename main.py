@@ -84,7 +84,7 @@ def train(net: DaRnnNet, train_data: TrainData, t_cfg: TrainConfig, n_epochs=10,
             loss = train_iteration(net, t_cfg.loss_func, feats, y_history, y_target)
             iter_losses[e_i * iter_per_epoch + t_i // t_cfg.batch_size] = loss
            
-            self.logger.info("Epoch %d, Batch %d: loss = %3.3f.", i, j / t_cfg.batch_size, loss)
+            #logger.info("Epoch %d, Batch %d: loss = %3.3f.", i, j / t_cfg.batch_size, loss)
             n_iter += 1
 
             adjust_learning_rate(net, n_iter)
