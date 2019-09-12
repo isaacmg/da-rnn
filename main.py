@@ -41,7 +41,7 @@ def preprocess_data(dat, col_names) -> Tuple[TrainData, StandardScaler]:
 def da_rnn(train_data: TrainData, n_targs: int, encoder_hidden_size=64, decoder_hidden_size=64,
            T=10, learning_rate=0.01, batch_size=128):
 
-    train_cfg = TrainConfig(T, int(train_data.feats.shape[0] * 0.7), batch_size, nn.MSELoss())
+    train_cfg = TrainConfig(T, int(train_data.feats.shape[0] -336), batch_size, nn.MSELoss())
     logger.info(f"Training size: {train_cfg.train_size:d}.")
 
     enc_kwargs = {"input_size": train_data.feats.shape[1], "hidden_size": encoder_hidden_size, "T": T}
