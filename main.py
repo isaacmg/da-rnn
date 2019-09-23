@@ -80,7 +80,7 @@ def train(net: DaRnnNet, train_data: TrainData, t_cfg: TrainConfig, n_epochs=10,
         for t_i in range(0, t_cfg.train_size, t_cfg.batch_size):
             batch_idx = perm_idx[t_i:(t_i + t_cfg.batch_size)]
             feats, y_history, y_target = prep_train_data(batch_idx, t_cfg, train_data)
-            if feats !=[]:
+            if len(feats)>0 and len(y_target)>0 and len(y_history)>0:
                 loss = train_iteration(net, t_cfg.loss_func, feats, y_history, y_target)
                 iter_losses[e_i * iter_per_epoch + t_i // t_cfg.batch_size] = loss
                 #logger.info("Epoch %d, Batch %d: loss = %3.3f.", i, j / t_cfg.batch_size, loss)
